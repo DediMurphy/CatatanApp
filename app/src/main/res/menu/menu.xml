@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:menuCategory="container">
+        <item
+            android:id="@+id/sort_by_id"
+            android:title="@string/sort_by_id"
+            android:contentDescription="@string/content_description_more"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/sort_by_title"
+            android:title="@string/sort_by_title"
+            android:contentDescription="@string/content_description_more"
+            app:showAsAction="never" />
+        />
+        <item
+            android:id="@+id/sort_by_date"
+            android:title="@string/sort_by_date"
+            android:contentDescription="@string/content_description_more"
+            app:showAsAction="never" />
+        />
+    </group>
+</menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="MainActivityTest">
+        <State />
+      </entry>
+      <entry key="NoteAddUpdateActivityTest">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\dedim\.android\avd\Pixel_5_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-07-22T03:08:12.737651700Z" />
+        </State>
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="testingMainActivity()">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>

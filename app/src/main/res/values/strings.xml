@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Catatan Saya</string>
+    <string name="title">Judul</string>
+    <string name="description">Deskripsi</string>
+    <string name="submit">Submit</string>
+    <string name="delete">Hapus</string>
+    <string name="date">Date</string>
+    <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
+    <string name="message_ok">OK</string>
+    <string name="cancel">Batal</string>
+    <string name="empty">Field can not be blank</string>
+    <string name="update">Update</string>
+    <string name="change">Ubah</string>
+    <string name="add">Tambah</string>
+    <string name="save">Simpan</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="message_cancel">Apakah anda ingin membatalkan perubahan pada form?</string>
+    <string name="message_delete">Apakah anda yakin ingin menghapus item ini?</string>
+    <string name="added">Satu item berhasil ditambahkan</string>
+    <string name="changed">Satu item berhasil diubah</string>
+    <string name="deleted">Satu item berhasil dihapus</string>
+    <string name="fab_add">button tambah</string>
+    <string name="title_main">Ceritakan Hari mu</string>
+    <string name="content_description_more">content_description_more</string>
+    <string name="sort_by_id">Sort by ID</string>
+    <string name="sort_by_title">Sort by title</string>
+    <string name="sort_by_date">Sort by date</string>
+    <string-array name="sort_options">
+        <item>Sort by ID</item>
+        <item>Sort by Title</item>
+        <item>Sort by Date</item>
+    </string-array>
+</resources>
