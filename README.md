@@ -20,9 +20,40 @@ menggunakan arsitektur MVVM dan mendukung operasi offline dengan Room sebagai ba
 3. Sinkronkan proyek dengan Gradle.
 4. Jalankan aplikasi pada perangkat atau emulator.
 
+## Fitur
+- Menambahkan catatan baru
+- Memperbarui catatan yang ada
+- Menghapus catatan
+- Mengurutkan catatan berdasarkan judul dan tanggal
+- Mendukung operasi offline dengan Room
+
 ## Penggunaan
 ### Contoh Penggunaan
 ```kotlin
-// Contoh penggunaan modul untuk menambah catatan
+// Modul untuk menambah catatan
 val note = Note(title = "Sample Title", description = "Sample Description")
 noteAddUpdateViewModel.insert(note)
+
+// Modul untuk menghapus catatan
+val note = Note(title = "Sample Title", description = "Sample Description")
+noteAddUpdateViewModel.insert(note)
+noteAddUpdateViewModel.delete(note)
+
+// Mengambil semua catatan dari basis data
+mainViewModel.getAllNotes().observe(this)  { noteList -> 
+   // Update UI dengan daftar catatan
+   adapter.setListNotes(noteList) 
+}
+
+// Mengambil semua catatan dari basis data berdasarkan judul
+mainViewModel.getSortedNotesByTitle().observe(this)  { noteList -> 
+   // Update UI dengan daftar catatan
+   adapter.setListNotes(noteList) 
+}
+
+// Mengambil catatan yang diurutkan berdasarkan tanggal
+mmainViewModel.getNoteByDate().observe(this)  { noteList -> 
+   // Update UI dengan daftar catatan
+   adapter.setListNotes(noteList) 
+}
+

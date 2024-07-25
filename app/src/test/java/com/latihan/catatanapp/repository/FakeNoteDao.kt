@@ -2,8 +2,8 @@ package com.latihan.catatanapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.latihan.catatanapp.data.local.Note
-import com.latihan.catatanapp.data.local.NoteDao
+import com.latihan.catatanapp.data.local.note.Note
+import com.latihan.catatanapp.data.local.note.NoteDao
 
 class FakeNoteDao : NoteDao {
     private val notes = mutableListOf<Note>()
@@ -31,12 +31,12 @@ class FakeNoteDao : NoteDao {
 
     override fun getNotesByTitle(): LiveData<List<Note>> {
         val sortedNotes = notes.sortedBy { it.title }
-        return MutableLiveData<List<Note>>(sortedNotes)
+        return MutableLiveData(sortedNotes)
     }
 
     override fun getNotesByDate(): LiveData<List<Note>> {
         val sortedNotes = notes.sortedBy { it.date }
-        return MutableLiveData<List<Note>>(sortedNotes)
+        return MutableLiveData(sortedNotes)
     }
 
     private fun refreshLiveData() {

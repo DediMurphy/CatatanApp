@@ -1,19 +1,13 @@
 package com.latihan.catatanapp.ui.noteup
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.catatanapp.R
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 import com.latihan.catatanapp.databinding.ActivityNoteAddUpdateBinding
 import com.latihan.catatanapp.helper.DateHelper
 import com.latihan.catatanapp.ui.ViewModelFactory
@@ -21,6 +15,7 @@ import com.latihan.catatanapp.ui.ViewModelFactory
 /**
  * Kelas aktivitas untuk menambah atau mengupdate catatan.
  */
+@Suppress("DEPRECATION")
 class NoteAddUpdateActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_NOTE = "extra_note"
@@ -118,7 +113,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
     }
 
     private fun onMenu() {
-        binding?.topAppBarNoteEdt?.setOnMenuItemClickListener {it ->
+        binding?.topAppBarNoteEdt?.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_delete -> {
                     showAlertDialog(ALERT_DIALOG_DELETE)
@@ -176,7 +171,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
      */
     private fun obtainViewModel(activity: AppCompatActivity): NoteAddUpdateViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
-        return ViewModelProvider(activity, factory).get(NoteAddUpdateViewModel::class.java)
+        return ViewModelProvider(activity, factory)[NoteAddUpdateViewModel::class.java]
     }
 
     /**

@@ -2,8 +2,7 @@ package com.latihan.catatanapp.ui.main
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 import com.latihan.catatanapp.repository.NoteRepository
 import com.latihan.catatanapp.utils.DataDummy
 import com.latihan.catatanapp.utils.getOrAwaitValue
@@ -17,6 +16,9 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 
+/**
+ * Kelas pengujian untuk MainViewModel.
+ */
 @RunWith(MockitoJUnitRunner::class)
 class MainViewModelTest {
 
@@ -28,6 +30,11 @@ class MainViewModelTest {
     private lateinit var mainViewModel: MainViewModel
     private val dummyNote = DataDummy.generateDummyNewsEntity()
 
+    /**
+     * Metode setup yang dijalankan sebelum setiap pengujian.
+     *
+     * Inisialisasi MainViewModel dengan mock dari NoteRepository.
+     */
     @Before
     fun setUp() {
         mainViewModel = MainViewModel(noteRepository)

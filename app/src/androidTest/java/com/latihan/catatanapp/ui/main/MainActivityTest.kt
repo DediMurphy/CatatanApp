@@ -33,18 +33,14 @@ class MainActivityTest {
      * - Memeriksa apakah Floating Action Button (FAB) dengan ID `fab_add` ditampilkan.
      * - Melakukan aksi klik pada FAB.
      */
+
     @Test
-    fun testingMainActivity() {
-        // Memeriksa apakah RecyclerView ditampilkan
+    fun loadListIsDisplay() {
         onView(withId(R.id.rv_notes)).check(matches(isDisplayed()))
-
-        // Melakukan aksi klik pada RecyclerView
         onView(withId(R.id.rv_notes)).perform(click())
-
-        // Memeriksa apakah Floating Action Button ditampilkan
+    }
+    fun loadViewFab() {
         onView(withId(R.id.fab_add)).check(matches(isDisplayed()))
-
-        // Melakukan aksi klik pada Floating Action Button
         onView(withId(R.id.fab_add)).perform(click())
     }
 }

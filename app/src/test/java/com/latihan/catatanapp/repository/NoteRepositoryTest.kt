@@ -2,10 +2,12 @@ package com.latihan.catatanapp.repository
 
 import android.os.Looper
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.latihan.catatanapp.data.local.NoteDao
+import com.latihan.catatanapp.data.local.note.NoteDao
 import com.latihan.catatanapp.utils.DataDummy
 import com.latihan.catatanapp.utils.getOrAwaitValue
 import org.junit.Assert
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -13,6 +15,8 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 @RunWith(MockitoJUnitRunner::class)
 class NoteRepositoryTest {
@@ -38,11 +42,30 @@ class NoteRepositoryTest {
      */
     @Test
     fun `when insertNote Should Add Note`() {
-        val dummyNotes = DataDummy.generateDummyNewsEntity()
-        val note = dummyNotes[0]
-        noteRepository.insert(note)
+        val dummyNotes = DataDummy.generateDummyNewsEntity()[0]
+        noteRepository.insert(dummyNotes)
         val allNotes = noteRepository.getAllNotes().getOrAwaitValue()
-        Assert.assertTrue(allNotes.contains(note))
+        Assert.assertTrue(allNotes.contains(dummyNotes))
+    }
+
+    /**
+     * Menguji bahwa catatan berhasil diupdate/ubah ke repositori ketika metode `update` dipanggil.
+     */
+    @Test
+    fun `when update Should update Note`() {
+        val dummyNotes = DataDummy.generateDummyNewsEntity()[0]
+        noteRepository.insert(dummyNotes)
+        val updatedTitle = "Updated Title"
+        val updatedDescription = "Updated Description"
+        val updatedNote = dummyNotes.copy(title = updatedTitle, description = updatedDescription)
+        val latch = CountDownLatch(1)
+        noteRepository.update(updatedNote)
+        latch.await(2, TimeUnit.SECONDS)
+        val resultNotes = noteRepository.getAllNotes().getOrAwaitValue(2, TimeUnit.SECONDS)
+        val resultNote = resultNotes.firstOrNull { it.id == dummyNotes.id }
+        assertNotNull(resultNote)
+        assertEquals(updatedTitle, resultNote?.title)
+        assertEquals(updatedDescription, resultNote?.description)
     }
 
     /**

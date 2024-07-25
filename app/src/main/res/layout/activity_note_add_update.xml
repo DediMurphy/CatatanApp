@@ -23,65 +23,72 @@
             app:navigationIcon="@drawable/ic_clear"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp" >
+        android:fillViewport="true"
+        tools:ignore="ScrollViewCount">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundMode="none">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp" >
 
-            <EditText
-                android:id="@+id/edt_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/title"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="24sp"
-                android:inputType="textCapSentences"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/tv_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="@string/date"
-            android:textColor="@color/secondary_700"
-            android:fontFamily="@font/poppins_italic"
-            android:textSize="12sp" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:boxBackgroundMode="none">
-
-            <EditText
-                android:id="@+id/edt_description"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
-                android:maxLines="10"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="12sp"
-                android:minLines="20"
-                android:gravity="top"
-                android:scrollbars="vertical" />
-        </com.google.android.material.textfield.TextInputLayout>
+                app:boxBackgroundMode="none">
 
-        <Button
-            android:id="@+id/btn_submit"
-            style="@style/Base.Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/submit" />
+                <EditText
+                    android:id="@+id/edt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/title"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="24sp"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/date"
+                android:textColor="@color/secondary_700"
+                android:fontFamily="@font/poppins_italic"
+                android:textSize="12sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundMode="none">
+
+                <EditText
+                    android:id="@+id/edt_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="12sp"
+                    android:minLines="20"
+                    android:gravity="top"
+                    android:scrollbars="vertical" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

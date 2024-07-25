@@ -1,8 +1,7 @@
 package com.latihan.catatanapp.ui.noteup
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 import com.latihan.catatanapp.repository.NoteRepository
 
 /**
@@ -10,7 +9,6 @@ import com.latihan.catatanapp.repository.NoteRepository
  *
  * @property mNotesRepository The repository for accessing note data.
  */
-
 class NoteAddUpdateViewModel(private val mNotesRepository: NoteRepository): ViewModel() {
 
     /**

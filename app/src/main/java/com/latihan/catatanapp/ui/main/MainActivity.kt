@@ -2,20 +2,10 @@ package com.latihan.catatanapp.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.latihan.catatanapp.R
-import com.latihan.catatanapp.data.local.Note
 import com.latihan.catatanapp.databinding.ActivityMainBinding
 import com.latihan.catatanapp.ui.ViewModelFactory
 import com.latihan.catatanapp.ui.noteup.NoteAddUpdateActivity
@@ -70,16 +60,15 @@ class MainActivity : AppCompatActivity() {
         binding?.topAppBar?.setOnMenuItemClickListener {menuItem ->
             when (menuItem.itemId) {
                 R.id.sort_by_id -> {
-                    mainViewModel.getAllNotes().observe(this@MainActivity) { noteList -> adapter.setListNotes(noteList)
-                    }
+                    mainViewModel.getAllNotes().observe(this)  { noteList -> adapter.setListNotes(noteList) }
                     true
                 }
                 R.id.sort_by_title -> {
-                    mainViewModel.getSortedNotesByTitle().observe(this@MainActivity) { sortedNotes -> adapter.setListNotes(sortedNotes) }
+                    mainViewModel.getSortedNotesByTitle().observe(this) { sortedNotes -> adapter.setListNotes(sortedNotes) }
                     true
                 }
                 R.id.sort_by_date -> {
-                    mainViewModel.getNoteByDate().observe(this@MainActivity) { sortedNotes -> adapter.setListNotes(sortedNotes) }
+                    mainViewModel.getNoteByDate().observe(this) { sortedNotes -> adapter.setListNotes(sortedNotes) }
                     true
                 }
                 else -> false
@@ -95,7 +84,7 @@ class MainActivity : AppCompatActivity() {
      */
      private fun obtainViewModel(activity: AppCompatActivity): MainViewModel {
         val factory = ViewModelFactory.getInstance(activity.application)
-        return ViewModelProvider(activity, factory).get(MainViewModel::class.java)
+        return ViewModelProvider(activity, factory)[MainViewModel::class.java]
     }
 
     override fun onDestroy() {

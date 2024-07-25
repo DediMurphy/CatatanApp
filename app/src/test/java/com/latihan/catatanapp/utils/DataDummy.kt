@@ -1,6 +1,6 @@
 package com.latihan.catatanapp.utils
 
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 
 object DataDummy {
     fun generateDummyNewsEntity(): List<Note> {

@@ -17,8 +17,8 @@ fun <T> LiveData<T>.getOrAwaitValue(
     var data: T? = null
     val latch = CountDownLatch(1)
     val observer = object : Observer<T> {
-        override fun onChanged(o: T) {
-            data = o
+        override fun onChanged(value: T) {
+            data = value
             latch.countDown()
             this@getOrAwaitValue.removeObserver(this)
         }
@@ -37,12 +37,12 @@ fun <T> LiveData<T>.getOrAwaitValue(
 }
 
 //observe Livedata sampai block selesai dieksekusi
-suspend fun <T> LiveData<T>.observeForTesting(block: suspend  () -> Unit) {
-    val observer = Observer<T> { }
-    try {
-        observeForever(observer)
-        block()
-    } finally {
-        removeObserver(observer)
-    }
-}
+//suspend fun <T> LiveData<T>.observeForTesting(block: suspend  () -> Unit) {
+//    val observer = Observer<T> { }
+//    try {
+//        observeForever(observer)
+//        block()
+//    } finally {
+//        removeObserver(observer)
+//    }
+//}

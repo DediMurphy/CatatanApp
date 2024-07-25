@@ -38,7 +38,6 @@ class NoteAddUpdateActivityTest() {
     fun setUp() {
         ActivityScenario.launch(NoteAddUpdateActivity::class.java)
     }
-
     /**
      * **uiTestInputandButton**
      *

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CatatanApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.auth.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.noteup.NoteAddUpdateActivity"
             android:exported="false" />
         <activity

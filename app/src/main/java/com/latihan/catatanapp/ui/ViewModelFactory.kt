@@ -14,7 +14,9 @@ import com.latihan.catatanapp.ui.noteup.NoteAddUpdateViewModel
  *
  * @param repository Repository yang digunakan oleh ViewModel untuk berinteraksi dengan data.
  */
-class ViewModelFactory(private val repository: NoteRepository) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(
+    private val repository: NoteRepository,
+) : ViewModelProvider.NewInstanceFactory() {
     /**
      * Membuat instance dari ViewModel yang ditentukan.
      *

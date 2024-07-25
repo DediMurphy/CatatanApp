@@ -1,9 +1,8 @@
 package com.latihan.catatanapp.repository
 
-import android.app.Application
 import androidx.lifecycle.LiveData
-import com.latihan.catatanapp.data.local.Note
-import com.latihan.catatanapp.data.local.NoteDao
+import com.latihan.catatanapp.data.local.note.Note
+import com.latihan.catatanapp.data.local.note.NoteDao
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -13,7 +12,6 @@ import java.util.concurrent.Executors
 class NoteRepository(
     private var mNotesDao: NoteDao
 ) {
-    lateinit var application: Application
     private var executorService: ExecutorService = Executors.newSingleThreadExecutor()
 
     /**
@@ -65,8 +63,9 @@ class NoteRepository(
     }
 
     /**
-     * Bubble sort algoritma untuk mengurutkan note berdasarkan title
-     * @param data the list of note to sort
+     * Mengurutkan daftar objek Note berdasarkan atribut title menggunakan algoritma Bubble Sort.
+     *
+     * @param data MutableList<Note> - Daftar yang akan diurutkan.
      */
     private fun bubbleSort(data: MutableList<Note>) {
         var isSorted = false
@@ -85,9 +84,23 @@ class NoteRepository(
         }
     }
 
+    /**
+     * Singleton untuk NoteRepository.
+     *
+     * Menggunakan pola singleton thread-safe untuk memastikan bahwa hanya ada satu instance
+     * dari NoteRepository yang dibuat.
+     */
     companion object {
         @Volatile
         private var instance: NoteRepository? = null
+
+        /**
+         * Mendapatkan instance dari NoteRepository.
+         * Jika instance belum ada, membuatnya dalam blok yang disinkronkan.
+         *
+         * @param noteDao NoteDao - Data Access Object untuk Note.
+         * @return NoteRepository - Instance dari NoteRepository.
+         */
         fun getInstance(
             noteDao: NoteDao
         ): NoteRepository =

@@ -4,25 +4,28 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.latihan.catatanapp.data.local.note.Note
+import com.latihan.catatanapp.data.local.note.NoteDao
 
 /**
- * Room database for managing Note entities.
+ * Database Room untuk mengelola entitas Note.
  */
 @Database(entities = [Note::class], version = 2)
 abstract class NoteRoomDatabase : RoomDatabase() {
 
     /**
-     * Provides access to the NoteDao.
+     * Menyediakan akses ke NoteDao.
      */
     abstract fun noteDao(): NoteDao
 
     companion object {
         @Volatile
         private var INSTANCE: NoteRoomDatabase? = null
+
         /**
-         * Retrieves the singleton instance of the database.
-         * @param context The application context.
-         * @return The database instance.
+         * Mendapatkan instance tunggal dari database.
+         * @param context Konteks aplikasi.
+         * @return Instance database.
          */
         @JvmStatic
         fun getDatabase(context: Context): NoteRoomDatabase {

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 import com.latihan.catatanapp.databinding.ItemNoteBinding
 import com.latihan.catatanapp.helper.NoteDiffCallback
 import com.latihan.catatanapp.ui.noteup.NoteAddUpdateActivity

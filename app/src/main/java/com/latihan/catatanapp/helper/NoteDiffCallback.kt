@@ -1,7 +1,7 @@
 package com.latihan.catatanapp.helper
 
 import androidx.recyclerview.widget.DiffUtil
-import com.latihan.catatanapp.data.local.Note
+import com.latihan.catatanapp.data.local.note.Note
 
 /**
  * **NoteDiffCallback**

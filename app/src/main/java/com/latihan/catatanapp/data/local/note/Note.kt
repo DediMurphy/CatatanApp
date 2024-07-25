@@ -1,4 +1,4 @@
-package com.latihan.catatanapp.data.local
+package com.latihan.catatanapp.data.local.note
 
 
 import android.os.Parcelable
