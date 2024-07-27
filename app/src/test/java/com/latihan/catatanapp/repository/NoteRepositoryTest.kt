@@ -36,7 +36,6 @@ class NoteRepositoryTest {
         noteRepository = NoteRepository(noteDao)
         mainLooper = mock(Looper::class.java)
     }
-
     /**
      * Menguji bahwa catatan berhasil ditambahkan ke repositori ketika metode `insert` dipanggil.
      */
