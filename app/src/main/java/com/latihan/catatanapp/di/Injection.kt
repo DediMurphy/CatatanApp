@@ -3,6 +3,7 @@ package com.latihan.catatanapp.di
 import android.content.Context
 import com.latihan.catatanapp.data.local.NoteRoomDatabase
 import com.latihan.catatanapp.repository.NoteRepository
+import com.latihan.catatanapp.repository.UserRepository
 
 /**
  * **Injection**
@@ -30,5 +31,12 @@ object Injection {
 
         // Mengembalikan instance dari NoteRepository dengan NoteDao dari database
         return NoteRepository.getInstance(database.noteDao())
+    }
+
+    fun provideUserRepository(context: Context): UserRepository {
+        // Mendapatkan instance dari NoteRoomDatabase
+        val database = NoteRoomDatabase.getDatabase(context)
+        // Mengembalikan instance dari NoteRepository dengan NoteDao dari database
+        return UserRepository.getInstance(database.noteDao())
     }
 }

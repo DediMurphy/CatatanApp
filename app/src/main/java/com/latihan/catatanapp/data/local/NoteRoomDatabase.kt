@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.latihan.catatanapp.data.local.note.Note
 import com.latihan.catatanapp.data.local.note.NoteDao
+import com.latihan.catatanapp.data.local.note.User
 
 /**
  * Database Room untuk mengelola entitas Note.
  */
-@Database(entities = [Note::class], version = 2)
+@Database(entities = [Note::class, User::class], version = 1)
 abstract class NoteRoomDatabase : RoomDatabase() {
 
     /**

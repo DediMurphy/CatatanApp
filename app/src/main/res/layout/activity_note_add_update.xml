@@ -76,7 +76,8 @@
                     android:textSize="12sp"
                     android:minLines="20"
                     android:gravity="top"
-                    android:scrollbars="vertical" />
+                    android:scrollbars="vertical"
+                    android:autofillHints="" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

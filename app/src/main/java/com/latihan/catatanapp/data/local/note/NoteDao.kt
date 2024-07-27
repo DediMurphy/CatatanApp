@@ -16,6 +16,25 @@ import androidx.room.Update
 interface NoteDao {
 
     /**
+     * Menyisipkan pengguna baru ke dalam database.
+     *
+     * @param user Pengguna yang akan disisipkan ke dalam database.
+     * @return ID dari pengguna yang baru disisipkan.
+     */
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertUser(user: User): Long
+
+    /**
+     * Mengambil pengguna dari database berdasarkan username dan password.
+     *
+     * @param username Username dari pengguna yang akan diambil.
+     * @param password Password dari pengguna yang akan diambil.
+     * @return Pengguna yang cocok dengan username dan password yang diberikan, atau null jika tidak ditemukan.
+     */
+    @Query("SELECT * FROM user WHERE username = :username AND password = :password")
+    suspend fun getUser(username: String, password: String): User?
+
+    /**
      *  Menambahkan catatan(note) baru kedalam database
      *  @param note The note to insert.
      */
@@ -49,6 +68,9 @@ interface NoteDao {
      */
     @Query("SELECT * FROM note ORDER BY title ASC")
     fun getNotesByTitle(): LiveData<List<Note>>
+
+    @Query("SELECT * FROM note WHERE title LIKE :query ORDER BY title ASC")
+    fun searchNotesByTitle(query: String): LiveData<List<Note>>
 
     /**
      * Mengambil data berdasarkan date(tanggal) di database

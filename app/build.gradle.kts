@@ -56,8 +56,14 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     // live data
     implementation(libs.lifecycle.livedata.ktx)
+
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.jetbrains.kotlinx.coroutines.android)
     // Room
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+
     ksp(libs.room.compiler)
 
     // Unit Testing

@@ -19,5 +19,11 @@
             android:contentDescription="@string/content_description_more"
             app:showAsAction="never" />
         />
+        <item
+            android:id="@+id/logout"
+            android:title="logout"
+            android:contentDescription="@string/content_description_more"
+            app:showAsAction="never" />
+        />
     </group>
 </menu>

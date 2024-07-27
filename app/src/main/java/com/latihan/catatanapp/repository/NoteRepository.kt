@@ -32,6 +32,14 @@ class NoteRepository(
         return notes
     }
 
+    fun searchNotesByTitle(query: String): LiveData<List<Note>> {
+        val notes = mNotesDao.searchNotesByTitle("%$query%")
+        if (notes.value != null) {
+            bubbleSort(notes.value!!.toMutableList())
+        }
+        return notes
+    }
+
     /**
      * Mengambil notes berdasarkan date
      * @return A LiveData list of note ordered date

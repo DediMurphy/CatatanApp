@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.latihan.catatanapp.di.Injection
 import com.latihan.catatanapp.repository.NoteRepository
+import com.latihan.catatanapp.repository.UserRepository
+import com.latihan.catatanapp.ui.auth.AuthViewModel
 import com.latihan.catatanapp.ui.main.MainViewModel
 import com.latihan.catatanapp.ui.noteup.NoteAddUpdateViewModel
 
@@ -16,6 +18,7 @@ import com.latihan.catatanapp.ui.noteup.NoteAddUpdateViewModel
  */
 class ViewModelFactory(
     private val repository: NoteRepository,
+    private val userRepository: UserRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     /**
      * Membuat instance dari ViewModel yang ditentukan.
@@ -29,6 +32,7 @@ class ViewModelFactory(
         when (modelClass) {
             MainViewModel::class.java -> MainViewModel(repository)
             NoteAddUpdateViewModel::class.java -> NoteAddUpdateViewModel(repository)
+            AuthViewModel::class.java -> AuthViewModel(userRepository)
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         } as T
 
@@ -51,7 +55,10 @@ class ViewModelFactory(
         fun getInstance(context: Context): ViewModelFactory {
             if (INSTANCE == null) {
                 synchronized(ViewModelFactory::class.java) {
-                    INSTANCE = ViewModelFactory(Injection.provideRepository(context))
+                    INSTANCE = ViewModelFactory(
+                        Injection.provideRepository(context),
+                        Injection.provideUserRepository(context)
+                    )
                 }
             }
             return INSTANCE as ViewModelFactory
